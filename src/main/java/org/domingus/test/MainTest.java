@@ -1,13 +1,12 @@
 package org.domingus.test;
 
 import java.io.FileNotFoundException;
-import java.util.List;
 
 import org.domingus.app.Domingus;
 import org.domingus.init.DomingusFactory;
 import org.domingus.interfaces.Source;
-import org.domingus.logger.Logger;
-import org.domingus.logger.Notification;
+import org.domingus.logger.HistoryNotifier;
+import org.domingus.logger.HistoryNotifierFactory;
 
 public class MainTest {
 	
@@ -16,24 +15,16 @@ public class MainTest {
 	private static Integer TIME_INTERVAL = 1000;
 	
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-    	
-    	Logger logger = new Logger(PATH_MEMORY);
-        List<Notification> notifications = logger.readHistory();
-
-        System.out.println("Starting... OK");
-        System.out.println("Memory size: " + notifications.size());
-
-        for (Notification notification : notifications) {
-			System.out.println(notification.getDate() + " - "+ notification.getMessage());
-		}
+    	System.out.println("Init App");
+    	HistoryNotifierFactory historyNotifierFactory = new HistoryNotifierFactory();
+    	HistoryNotifier historyNotifier = historyNotifierFactory.create(PATH_MEMORY);
         
+    	DomingusFactory domingusFactory = new DomingusFactory();
     	Source source = new SourceLoggerMock(TIME_INTERVAL);
-		DomingusFactory factory = new DomingusFactory();
-		Domingus domingus = factory.create(source, EXTENSIONS_PATH);
+		Domingus domingus = domingusFactory.create(source, EXTENSIONS_PATH);
 		
-    	domingus.addNotifier(logger);
-    	domingus.addCurrentNotifier(logger.getName());
-
+    	domingus.addNotifier(historyNotifier);
+    	domingus.addCurrentNotifier(historyNotifier.getName());
     }
 
 }

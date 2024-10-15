@@ -6,11 +6,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DataWritter {
+public class Writer {
 
 	private String path;
 
-	public DataWritter(String path) {
+	public Writer(String path) {
 		this.path = path;
 	}
 	

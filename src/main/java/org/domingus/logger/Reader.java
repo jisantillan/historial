@@ -10,15 +10,15 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DataReader {
+public class Reader {
 	
 	private String path;
 
-	public DataReader(String path) {
+	public Reader(String path) {
 		this.path = path;
 	}
 	
-	public List<Notification> read() {
+	public List<Notification> readAll() {
         try {
             File file = new File(path);
             if (file .exists()) {
