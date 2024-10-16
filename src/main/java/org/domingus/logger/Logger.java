@@ -12,10 +12,10 @@ public class Logger {
 		writer = new Writer(path);
 	}
 	
-	public void log(Notification notification) {
-		List<Notification> notificaciones = reader.readAll();
-		notificaciones.add(notification);
-		writer.write(notificaciones);
+	public void writeLog(Log log) {
+		List<Log> logs = reader.readAll();
+		logs.add(log);
+		writer.write(logs);
 	}
 
 }

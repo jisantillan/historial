@@ -2,12 +2,12 @@ package org.domingus.logger;
 
 import org.domingus.interfaces.Notifier;
 
-public class HistoryNotifier implements Notifier {
+public class LogNotifier implements Notifier {
 	
-	private static String NAME = "HistoryNotifier";
-	private NotificationAdapter adapter;
+	private static String NAME = "LogNotifier";
+	private LogAdapter adapter;
 
-	public HistoryNotifier(NotificationAdapter adapter) {
+	public LogNotifier(LogAdapter adapter) {
 		this.adapter = adapter;
 	}
 

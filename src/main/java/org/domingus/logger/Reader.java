@@ -18,18 +18,18 @@ public class Reader {
 		this.path = path;
 	}
 	
-	public List<Notification> readAll() {
+	public List<Log> readAll() {
         try {
             File file = new File(path);
             if (file .exists()) {
                 String data = Files.readString(Path.of(path));
                 ObjectMapper objectMapper = new ObjectMapper();
-                return objectMapper.readValue(data, new TypeReference<List<Notification>>() {});
+                return objectMapper.readValue(data, new TypeReference<List<Log>>() {});
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ArrayList<Notification>();
+        return new ArrayList<Log>();
     }
 
 }

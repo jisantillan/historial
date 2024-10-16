@@ -1,5 +1,3 @@
-package org.domingus.test;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +10,7 @@ public class SourceLoggerMock  implements Source, Runnable {
     private Set<Observer> observers;
     private int version;
 
-    public SourceLoggerMock(Integer timeInterval) throws InterruptedException {
+    public SourceLoggerMock(Integer timeInterval) {
         observers = new HashSet<>();
         TimerLoggerMock timer = new TimerLoggerMock(timeInterval, this);
         Thread thread = new Thread(timer);

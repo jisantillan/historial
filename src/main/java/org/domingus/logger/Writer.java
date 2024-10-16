@@ -14,11 +14,11 @@ public class Writer {
 		this.path = path;
 	}
 	
-	public void write(List<Notification> data) {
+	public void write(List<Log> logs) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             File file = new File(path);
-            objectMapper.writeValue(file, data);
+            objectMapper.writeValue(file, logs);
         } catch (IOException e) {
             e.printStackTrace();
         }
