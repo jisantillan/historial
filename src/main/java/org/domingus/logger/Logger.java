@@ -15,6 +15,7 @@ public class Logger {
 	public void writeLog(Log log) {
 		List<Log> logs = reader.readAll();
 		logs.add(log);
+		System.out.println("Se añadio el log: " + log.getDate() + " " + log.getMessage());
 		writer.write(logs);
 	}
 
