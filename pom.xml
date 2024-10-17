@@ -26,12 +26,16 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-databind.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.domingus</groupId>
-            <artifactId>core</artifactId>
-            <version>${core.version}</version>
+            <groupId>com.github.jisantillan</groupId>
+            <artifactId>tp-pp2-core</artifactId>
+            <version>iteracion-1-1dc5d389b3-1</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.domingus</groupId>-->
+<!--            <artifactId>core</artifactId>-->
+<!--            <version>${core.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>
