@@ -1,5 +1,3 @@
-package org.domingus.test;
-
 public class TimerLoggerMock  implements Runnable {
 	
     private Integer timeInterval;

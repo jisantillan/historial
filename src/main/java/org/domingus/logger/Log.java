@@ -2,17 +2,17 @@ package org.domingus.logger;
 
 import java.util.Date;
 
-public class Notification {
+public class Log {
 	
 	private String message;
-	private Date date;
+	private String date;
 	
-	public Notification(String message, Date date) {
+	public Log(String message) {
 		this.message = message;
-		this.date = date;
+		this.date = new Date().toString();
 	}
 
-	public Notification() {}
+	public Log() {}
 
 	public String getMessage() {
 		return message;
@@ -22,11 +22,11 @@ public class Notification {
 		this.message = message;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
