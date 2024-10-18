@@ -2,14 +2,14 @@ package org.domingus.init;
 
 import org.domingus.logger.LogAdapter;
 import org.domingus.logger.Logger;
-import org.domingus.logger.LogNotifier;
+import org.domingus.logger.MessageListener;
 
-public class LogNotifierFactory {
+public class MessageListenerFactory {
 	
-	public LogNotifier create(String path) {
+	public MessageListener create(String path) {
 		Logger logger = new Logger(path);
 		LogAdapter logAdapter = new LogAdapter(logger);
-		return new LogNotifier(logAdapter);
+		return new MessageListener(logAdapter);
 	}
 
 }
