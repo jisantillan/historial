@@ -1,9 +1,9 @@
-public class TimerLoggerMock  implements Runnable {
+public class TimerLogger  implements Runnable {
 	
     private Integer timeInterval;
     private Runnable runnable;
 
-    public TimerLoggerMock(Integer timeInterval, Runnable runnable) {
+    public TimerLogger(Integer timeInterval, Runnable runnable) {
     	this.runnable = runnable;
         this.timeInterval = timeInterval;
     }

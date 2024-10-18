@@ -1,10 +1,9 @@
 package org.domingus.logger;
 
-import org.domingus.interfaces.Notifier;
+import org.domingus.interfaces.Observer;
 
-public class LogNotifier implements Notifier {
+public class LogNotifier implements Observer {
 	
-	private static String NAME = "LogNotifier";
 	private LogAdapter adapter;
 
 	public LogNotifier(LogAdapter adapter) {
@@ -12,13 +11,8 @@ public class LogNotifier implements Notifier {
 	}
 
 	@Override
-	public void notify(String message) {
-		adapter.adapt(message);
-	}
-
-	@Override
-	public String getName() {
-		return NAME;
+	public void update(Object object) {
+		adapter.adapt((String) object);
 	}
 
 }
