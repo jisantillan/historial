@@ -18,11 +18,11 @@ public class MainTest {
     	LogNotifier logNotifier = logNotifierFactory.create(PATH_MEMORY);
         
     	DomingusFactory domingusFactory = new DomingusFactory();
-    	Source source = new SourceLoggerMock(TIME_INTERVAL);
+    	Source source = new SourceLogger(TIME_INTERVAL);
 		Domingus domingus = domingusFactory.create(source, EXTENSIONS_PATH);
 		
-    	domingus.addNotifier(logNotifier);
-    	domingus.addCurrentNotifier(logNotifier.getName());
+    	domingus.addObserver(logNotifier);
+    	//domingus.addCurrentNotifier(logNotifier);
     }
 
 }

@@ -1,18 +1,18 @@
 import java.util.HashSet;
 import java.util.Set;
 
-import org.domingus.app.AcademicOffer;
+import org.domingus.app.ClassroomAssignment;
 import org.domingus.interfaces.Observer;
 import org.domingus.interfaces.Source;
 
-public class SourceLoggerMock  implements Source, Runnable {
+public class SourceLogger  implements Source, Runnable {
 
     private Set<Observer> observers;
     private int version;
 
-    public SourceLoggerMock(Integer timeInterval) {
+    public SourceLogger(Integer timeInterval) {
         observers = new HashSet<>();
-        TimerLoggerMock timer = new TimerLoggerMock(timeInterval, this);
+        TimerLogger timer = new TimerLogger(timeInterval, this);
         Thread thread = new Thread(timer);
         thread.start();
     }
@@ -23,13 +23,13 @@ public class SourceLoggerMock  implements Source, Runnable {
     }
 
     @Override
-    public void send(AcademicOffer academicOffer) {
-        observers.forEach((observer -> observer.update(academicOffer)));
+    public void run() {
+        send(new ClassroomAssignment(version++));
     }
 
-    @Override
-    public void run() {
-        send(new AcademicOffer(version++));
-    }
+	@Override
+	public void send(ClassroomAssignment classroomAssignment) {
+        observers.forEach((observer -> observer.update(classroomAssignment)));
+	}
 
 }
