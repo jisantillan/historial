@@ -22,7 +22,7 @@ public class MainTest {
 		Domingus domingus = domingusFactory.create(source, EXTENSIONS_PATH);
 		
     	domingus.addObserver(logNotifier);
-    	//domingus.addCurrentNotifier(logNotifier);
+    	domingus.addCurrentObserver(logNotifier);
     }
 
 }
