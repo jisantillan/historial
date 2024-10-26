@@ -10,7 +10,7 @@ public class Main {
 	
 	private static String EXTENSIONS_PATH = "src\\test\\resources\\extensions\\";
 	private static String PATH_MEMORY = "src\\test\\resources\\memory.txt";
-	private static Integer TIME_INTERVAL = 1000;
+	private static Integer TIME_INTERVAL = 2000;
 	
     public static void main(String[] args) throws IOException {
     	System.out.println("Init App");
