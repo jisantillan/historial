@@ -1,22 +1,27 @@
 package org.domingus.logger;
 
-import java.util.List;
+import org.domingus.interfaces.Observer;
 
-public class Logger {
+import java.io.PrintWriter;
+import java.util.Date;
+
+public class Logger implements Observer {
+
+	private PrintWriter writer;
 	
-	private Reader reader;
-	private Writer writer;
-	
-	public Logger(String path) {
-		reader = new Reader(path);
-		writer = new Writer(path);
+	public Logger(PrintWriter writer) {
+		this.writer = writer;
 	}
 	
-	public void writeLog(Log log) {
-		List<Log> logs = reader.readAll();
-		logs.add(log);
-		System.out.println("Se añadio el log: " + log.getDate() + " " + log.getMessage());
-		writer.write(logs);
+	public void log(String message) {
+		String entry = new Date().toString() + " " + message;
+		writer.println(entry);
 	}
+
+	@Override
+	public void update(Object object) {
+		log((String) object);
+	}
+
 
 }
