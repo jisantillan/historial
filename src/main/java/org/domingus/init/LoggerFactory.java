@@ -1,15 +1,20 @@
 package org.domingus.init;
 
 import org.domingus.logger.Logger;
+import org.domingus.logger.Writter;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class LoggerFactory {
 	
 	public Logger create(String path) throws IOException {
-		PrintWriter writer = new PrintWriter(new FileWriter(path, true), true);
+		File file = new File(path);
+
+		if (!file.exists()) {
+			throw new IOException("El archivo en el path especificado no existe: " + path);
+		}
+
+		Writter writer = new Writter(path);
 		return new Logger(writer);
 	}
 

@@ -2,20 +2,20 @@ package org.domingus.logger;
 
 import org.domingus.interfaces.Observer;
 
-import java.io.PrintWriter;
 import java.util.Date;
 
 public class Logger implements Observer {
 
-	private PrintWriter writer;
+	private Writter writer;
 	
-	public Logger(PrintWriter writer) {
+	public Logger(Writter writer) {
 		this.writer = writer;
 	}
 	
 	public void log(String message) {
 		String entry = new Date().toString() + " " + message;
-		writer.println(entry);
+		writer.write(entry);
+		System.out.println("Logged: " + entry);
 	}
 
 	@Override
