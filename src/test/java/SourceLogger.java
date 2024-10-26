@@ -10,11 +10,8 @@ public class SourceLogger  implements Source, Runnable {
     private Set<Observer> observers;
     private int version;
 
-    public SourceLogger(Integer timeInterval) {
+    public SourceLogger() {
         observers = new HashSet<>();
-        TimerLogger timer = new TimerLogger(timeInterval, this);
-        Thread thread = new Thread(timer);
-        thread.start();
     }
 
     @Override

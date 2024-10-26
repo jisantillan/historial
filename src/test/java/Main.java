@@ -18,11 +18,15 @@ public class Main {
     	Logger logger = loggerFactory.create(PATH_MEMORY);
         
     	DomingusFactory domingusFactory = new DomingusFactory();
-    	Source source = new SourceLogger(TIME_INTERVAL);
+    	Source source = new SourceLogger();
+		TimerLogger timer = new TimerLogger(TIME_INTERVAL, (Runnable) source);
+
 		Domingus domingus = domingusFactory.create(source, EXTENSIONS_PATH);
 		
     	domingus.addObserver(logger);
     	domingus.addCurrentObserver(logger.getClass().getSimpleName());
+
+		timer.run();
     }
 
 }
