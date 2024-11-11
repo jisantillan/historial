@@ -6,9 +6,9 @@ import java.util.Date;
 
 public class Logger implements Observer {
 
-	private Writter writer;
+	private Writer writer;
 	
-	public Logger(Writter writer) {
+	public Logger(Writer writer) {
 		this.writer = writer;
 	}
 	
